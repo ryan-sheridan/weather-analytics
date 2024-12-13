@@ -1,0 +1,22 @@
+<% layout('partials/layout') %>
+<div class="d-flex align-items-top mt-5 vh-100 text-light">
+    <div class="container" style="max-width: 70em;">
+        <h1 class="text-center">Welcome back.</h1>
+        <p class="text-center text-muted">User: student123, Pass: Student123@</p>
+        <div style="max-width: 30em;" class="mt-5 form-container p-4 bg-black outline rounded mx-auto">
+            <div class="mb-3">
+                <label for="usernameOrEmail" class="form-label">Username or email</label>
+                <input type="text" id="usernameOrEmail" name="usernameOrEmail" class="r-input shadow-none form-control bg-black text-light rounded" placeholder="Enter your username or email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="r-input shadow-none form-control bg-black text-light rounded" placeholder="Enter your password" required>
+            </div>
+            <div id="alert-error" class="alert alert-danger" style="display:none;" role="alert">
+            </div>
+            <div id="alert-success" class="alert alert-primary" style="display:none;" role="alert">
+            </div>
+            <button id="login" type="submit" class="r-button mt-5 btn btn-primary w-100">Login</button>
+        </div>
+    </div>
+</div>

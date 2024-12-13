@@ -1,0 +1,313 @@
+:root {
+    /* 
+        im a big helvetica fan, but i believe it requires a licence, also san fransisco on os* is
+        restricted to apple devices only, the font Inter is a nice mix between
+    */
+    font-family: Inter, sans-serif !important;
+    font-feature-settings: 'liga' 1, 'calt' 1 !important;
+
+    /* define our colour pallete, we can access this anywhere in the css */
+    --dark-background: #0c1015;
+    --dark-outline: #1e2228;
+    --dark-text-color: #f9f9f9;
+    --dark-primary-color: #2f27ce;
+    --dark-secondary-color: #dedcff;
+    --dark-accent-color: #433bff;
+
+    /* stolen from https://www.realtimecolors.com/?colors=050315-fbfbfe-2f27ce-dedcff-433bff&fonts=Inter-Inter */
+    --text5: hsl(0, 0%, 98%, 5%);
+    --text10: hsl(0, 0%, 98%, 10%);
+    --text15: hsl(0, 0%, 98%, 15%);
+    --text20: hsl(0, 0%, 98%, 20%);
+    --text25: hsl(0, 0%, 98%, 25%);
+    --text30: hsl(0, 0%, 98%, 30%);
+    --text35: hsl(0, 0%, 98%, 35%);
+    --text40: hsl(0, 0%, 98%, 40%);
+    --text45: hsl(0, 0%, 98%, 45%);
+    --text50: hsl(0, 0%, 98%, 50%);
+    --text55: hsl(0, 0%, 98%, 55%);
+    --text60: hsl(0, 0%, 98%, 60%);
+    --text65: hsl(0, 0%, 98%, 65%);
+    --text70: hsl(0, 0%, 98%, 70%);
+    --text75: hsl(0, 0%, 98%, 75%);
+    --text80: hsl(0, 0%, 98%, 80%);
+    --text85: hsl(0, 0%, 98%, 85%);
+    --text90: hsl(0, 0%, 98%, 90%);
+    --text95: hsl(0, 0%, 98%, 95%);
+    --primary5: hsl(243, 68%, 48%, 5%);
+    --primary10: hsl(243, 68%, 48%, 10%);
+    --primary15: hsl(243, 68%, 48%, 15%);
+    --primary20: hsl(243, 68%, 48%, 20%);
+    --primary25: hsl(243, 68%, 48%, 25%);
+    --primary30: hsl(243, 68%, 48%, 30%);
+    --primary35: hsl(243, 68%, 48%, 35%);
+    --primary40: hsl(243, 68%, 48%, 40%);
+    --primary45: hsl(243, 68%, 48%, 45%);
+    --primary50: hsl(243, 68%, 48%, 50%);
+    --primary55: hsl(243, 68%, 48%, 55%);
+    --primary60: hsl(243, 68%, 48%, 60%);
+    --primary65: hsl(243, 68%, 48%, 65%);
+    --primary70: hsl(243, 68%, 48%, 70%);
+    --primary75: hsl(243, 68%, 48%, 75%);
+    --primary80: hsl(243, 68%, 48%, 80%);
+    --primary85: hsl(243, 68%, 48%, 85%);
+    --primary90: hsl(243, 68%, 48%, 90%);
+    --primary95: hsl(243, 68%, 48%, 95%);
+    --secondary5: hsl(243, 100%, 93%, 5%);
+    --secondary10: hsl(243, 100%, 93%, 10%);
+    --secondary15: hsl(243, 100%, 93%, 15%);
+    --secondary20: hsl(243, 100%, 93%, 20%);
+    --secondary25: hsl(243, 100%, 93%, 25%);
+    --secondary30: rgba(221, 219, 255, 0.3);
+    --secondary35: hsl(243, 100%, 93%, 35%);
+    --secondary40: hsl(243, 100%, 93%, 40%);
+    --secondary45: hsl(243, 100%, 93%, 45%);
+    --secondary50: hsl(243, 100%, 93%, 50%);
+    --secondary55: hsl(243, 100%, 93%, 55%);
+    --secondary60: hsl(243, 100%, 93%, 60%);
+    --secondary65: hsl(243, 100%, 93%, 65%);
+    --secondary70: hsl(243, 100%, 93%, 70%);
+    --secondary75: hsl(243, 100%, 93%, 75%);
+    --secondary80: hsl(243, 100%, 93%, 80%);
+    --secondary85: hsl(243, 100%, 93%, 85%);
+    --secondary90: hsl(243, 100%, 93%, 90%);
+    --secondary95: hsl(243, 100%, 93%, 95%);
+}
+
+/* outline utility class */
+.outline {
+    border: 1px solid var(--dark-outline);
+}
+
+.r-input {
+    outline:none;
+    border:none;
+}
+
+.bg-black {
+    background-color: var(--dark-background) !important;
+}
+
+@supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif !important; }
+}
+
+/* css background generator: https://mycolor.space/gradient */
+body {
+    font-family: Inter, sans-serif !important;
+    background-image: linear-gradient(to right, #0c1015, #001f43, #002a75, #0030a5, #2f27ce) !important;
+}
+
+/* navbar should be black with a bottom border */
+.navbar {
+    background-color: var(--dark-background) !important;
+    border-bottom: 0.01em solid var(--dark-outline);
+}
+
+/* all h tags should be bold, font Inter, override bootstrap */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700 !important; 
+    font-family: Inter, sans-serif !important; 
+}
+
+/* make h1s bigger */
+h1 {
+    font-size: 3.7em !important;
+}
+/* again stolen from https://www.realtimecolors.com/?colors=050315-fbfbfe-2f27ce-dedcff-433bff&fonts=Inter-Inter source */
+.btn-primary {
+    --bs-btn-color: #fff !important;
+    --bs-btn-bg: #2f27ce !important;
+    --bs-btn-border-color: #2f27ce !important;
+    --bs-btn-hover-color: #fff !important;
+    --bs-btn-hover-bg: #271eb7 !important;
+    --bs-btn-hover-border-color: #2417a5 !important;
+    --bs-btn-focus-shadow-rgb: 47, 39, 206 !important;
+    --bs-btn-active-color: #fff !important;
+    --bs-btn-active-bg: #2417a5 !important;
+    --bs-btn-active-border-color: #21149a !important;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+    --bs-btn-disabled-color: #fff !important;
+    --bs-btn-disabled-bg: #2f27ce !important;
+    --bs-btn-disabled-border-color: #2f27ce !important;
+}
+
+/* asked gpt can it override success utility class for bootstrap to work smoothly with the colour pallete defined above */
+.btn-success {
+    --bs-btn-color: #fff !important;
+    --bs-btn-bg: #28a745 !important; 
+    --bs-btn-border-color: #28a745 !important;
+    --bs-btn-hover-color: #fff !important;
+    --bs-btn-hover-bg: #218838 !important; 
+    --bs-btn-hover-border-color: #1e7e34 !important;
+    --bs-btn-focus-shadow-rgb: 40, 167, 69 !important;
+    --bs-btn-active-color: #fff !important;
+    --bs-btn-active-bg: #1e7e34 !important; 
+    --bs-btn-active-border-color: #1c7430 !important;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) !important;
+    --bs-btn-disabled-color: #fff !important;
+    --bs-btn-disabled-bg: #28a745 !important;
+    --bs-btn-disabled-border-color: #28a745 !important;
+}
+
+.text-muted {
+    color:#dedcff !important;
+}
+
+.form-label {
+    color: #ffffff8c !important;
+}
+
+/* make weather icons bigger */
+.icon {
+    width: 15em; 
+    height: 15em; 
+    fill: #f9f9f9; 
+}
+
+/* better looking text input */
+.r-input {
+    background-color: #25292f !important;
+    height: 3em;
+}
+
+.r-input::placeholder {
+    color: #8d8c94 !important;
+}
+
+.r-button {
+    height: 3em;
+}
+
+.profile-image-container {
+    padding-left: 1em;
+}
+
+/* custom bootstrap inspired toast/snackbar for map overlay */
+.r-toast {
+    padding: 5px;
+    margin: 5px;
+    z-index: 1 !important;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease; 
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(10px) !important; 
+    -webkit-backdrop-filter: blur(10px) !important; 
+}
+
+/* even larger weather icon */
+.larger-icon {
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* toast should transition y and opacity smoothly */
+.r-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.r-toast.hide {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+/* for mobile */
+@media (max-width: 768px) {
+    .icon {
+        display:none;
+    }
+
+    h1 {
+        font-size: x-large !important;
+    }
+}
+
+/* weather map favourite location overlay */
+#info-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    max-width: 450px;
+}
+
+/* utility class for transparent background, used on info-panel */
+.no-background {
+    background: rgba(0, 0, 0, 0.0) !important;
+}
+
+.top-info-panel {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+/* blur everything for glass effect */
+.saved-location-container {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 5px 5px 0 0;
+    transition: border-radius 0.4s ease;
+}
+
+/* saved locations should be able to collapse */
+.saved-location-container.collapsed {
+    border-radius: 5px 5px 5px 5px;
+}
+
+.collapsible-content {
+    max-height: 500px; 
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.delete-or-analyse {
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 5px 5px;
+}
+
+.delete-or-analyse.collapsed {
+    max-height: 0;
+}
+
+
+
+
+
+/* mapboxgl styles */
+
+.mapboxgl-popup-content {
+    border-radius: 0 !important;
+    color: var(--dark-text-color) !important;
+    background-color: var(--dark-background) !important;
+}
+
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+    border-top-color: var(--dark-background) !important;
+}
+
+.mapboxgl-popup-close-button {
+    color: var(--dark-secondary-color) !important;
+}
+
+/* mapbox end */
+
+.navbar-brand {
+    color: var(--dark-secondary-color);
+}
+
+#weather-map-icon {
+    font-size: 60px;
+    color: var(--dark-secondary-color);
+}

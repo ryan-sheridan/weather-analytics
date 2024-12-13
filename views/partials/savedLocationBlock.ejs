@@ -1,0 +1,35 @@
+<div class="container d-flex flex-column" style="height: 100%;">
+    <!-- for each location -->
+    <% locations.forEach(location => { %>
+        <!-- input data we might need to use later, lat lon, and index -->
+        <div 
+            data-lat="<%= location.lat %>"
+            data-lon="<%= location.lon %>" 
+            data-index="<%- location.index %>" 
+            id="weather-block-<%- location.index %>" 
+            class="saved-location-container d-flex justify-content-between align-items-start mx-2 mt-3 collapsed">
+            
+            <!-- show lat and lon -->
+            <div class="d-flex flex-column">
+                <h4 id="saved-weather-city-name" class="mx-3 pt-3 mb-1"><%= location.cityName %></h4>
+                <div class="d-flex align-items-center mx-3">
+                    <p id="saved-weather-icon" class="text-muted mb-3">
+                        Lat: <%= location.lat.toFixed(3) %>, Lon: <%= location.lon.toFixed(3) %>
+                    </p>
+                </div>
+            </div>
+            <!-- show weather icon and use -->
+            <div class="d-flex flex-column align-items-end mx-3 mt-3">
+                <h5 id="weather-degrees" class="mb-0"><%= Math.round(location.weather.main.temp) %>&deg;C</h5>
+                <i class="fas <%= location.weather.fontAwesomeIcon %> larger-icon mt-2"></i>
+            </div>
+        </div>
+        <div class="delete-or-analyse px-2 d-flex justify-content-between align-items-start mx-2 collapsed">
+            <button class="analyse-btn btn btn-primary w-100 mx-1 mt-1 mb-2 py-1">Analyse</button>
+            <button class="analyse-btn btn btn-success w-100 mx-1 mt-1 mb-2 py-1">Go to</button>
+            <button class="analyse-btn btn btn-secondary mx-1 mt-1 mb-3 py-1">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+            </button>
+        </div>
+    <% }) %>
+</div>

@@ -1,0 +1,123 @@
+<% layout('partials/layout') %>
+<div class="container mt-5 text-light p-4">
+    <div class="row align-items-top justify-content-between">
+        <div class="d-flex home-container"></div>
+        <div class="d-flex align-items-top justify-content-between welcome-container">
+            <div class="mt-4">
+                <h1 class="font-weight-bold m-0 mt-1">5 day Weather Analytics</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <!-- a bunch of charts, using canvas -->
+        <canvas id="tempChart" class="mb-4" width="400" height="200"></canvas>
+        <canvas id="humidityChart" class="mb-4" width="400" height="200"></canvas>
+        <canvas id="windSpeedChart" class="mb-4" width="400" height="200"></canvas>
+        <canvas id="rainChart" class="mb-4" width="400" height="200"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // not a chance im putting this in main.js it got way to big
+
+    // weird hack to pass the injected forecast data to the internal javascript of this page
+    const forecastData = JSON.parse('<%- JSON.stringify(forecast) %>');
+
+    // extract the data for charts
+    const labels = forecastData.map(item => item.dt_txt); // date time labels
+    const temperatures = forecastData.map(item => item.main.temp - 273.15); // kelvin to celcius
+    const humidities = forecastData.map(item => item.main.humidity);
+    const windSpeeds = forecastData.map(item => item.wind.speed);
+    const rainVolumes = forecastData.map(item => item.rain ? item.rain['3h'] || 0 : 0);
+
+    // temp chart
+    new Chart(document.getElementById('tempChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'temperature (°C)',
+                data: temperatures,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: { title: { display: true, text: 'time' } },
+                y: { title: { display: true, text: 'temperature (°C)' } }
+            }
+        }
+    });
+
+    // create humidity chart
+    new Chart(document.getElementById('humidityChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'humidity (%)',
+                data: humidities,
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: { title: { display: true, text: 'time' } },
+                y: { title: { display: true, text: 'humidity (%)' } }
+            }
+        }
+    });
+
+    // wind speed chart
+    new Chart(document.getElementById('windSpeedChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'wind speed (m/s)',
+                data: windSpeeds,
+                borderColor: 'rgba(255, 206, 86, 1)',
+                backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: { title: { display: true, text: 'time' } },
+                y: { title: { display: true, text: 'wind Speed (m/s)' } }
+            }
+        }
+    });
+
+    // rain volume chart (mm)
+    // handy for dublin
+    new Chart(document.getElementById('rainChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'rain volume (mm)',
+                data: rainVolumes,
+                borderColor: 'rgba(153, 102, 255, 1)',
+                backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: { title: { display: true, text: 'time' } },
+                y: { title: { display: true, text: 'rain volume (mm)' } }
+            }
+        }
+    });
+</script>

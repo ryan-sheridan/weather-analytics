@@ -1,0 +1,61 @@
+<% layout('partials/layout') %>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="pb-5 align-items-end justify-content-end d-flex profile-info-container">
+                <div class="profile-info">
+                    <!-- show welcome and username along with the date they joined -->
+                    <h2 class="text-end">Welcome <%- user.username %></h2>
+                    <p class="text-muted text-end">Member since: <%- new Date(user.id).toDateString() %></p>
+                </div>
+                <div class="profile-image-container">
+                    <img width="100em" height="100em" src="public/images/profile.svg" alt="profile_picture">
+                </div>
+            </div>
+            <div>
+                <div class="text-light">
+                    <h3 class="no-background mb-2">Edit Profile</h3>
+                </div>
+                <div>
+                    <form>
+
+                        <!-- username field -->
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="username" 
+                                class="r-input shadow-none form-control bg-black text-light rounded" 
+                                value="<%- user.username %>" 
+                                placeholder="Enter your new username" 
+                                required>
+                        </div>
+
+                        <!-- email field -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="r-input shadow-none form-control bg-black text-light rounded" 
+                                value="<%- user.email %>" 
+                                placeholder="Enter your email" 
+                                required>
+                        </div>
+
+                        <!-- submit button -->
+                        <div class="pt-4 d-grid">
+                            <button class="edit-profile btn btn-primary">Save Changes</button>
+                        </div>
+                        <div class="align-items-right text-end justify-content-end">
+                            <button class="mt-5 logout btn btn-secondary">Logout</button>
+                            <button class="mt-5 delete-account btn btn-danger">Delete account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
