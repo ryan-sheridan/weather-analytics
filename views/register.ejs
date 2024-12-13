@@ -1,0 +1,31 @@
+<% layout('partials/layout') %>
+<div class="d-flex align-items-top mt-5 vh-100 text-light">
+    <div class="container" style="max-width: 70em;">
+        <h1 class="text-center">Register now to start your weather journey today.</h1> <!-- a very human message -->
+        <div style="max-width: 30em;" class="mt-5 form-container p-4 bg-black outline rounded mx-auto">
+            <form action="/register" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" id="username" name="username" class="r-input shadow-none form-control bg-black text-light rounded" placeholder="Enter your username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" id="email" name="email" class="r-input shadow-none form-control bg-black text-light rounded" placeholder="Enter your email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" name="password" class="r-input shadow-none form-control bg-black text-light rounded" placeholder="Enter your password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirm-password" class="form-label">Confirm Password</label>
+                    <input type="confirm-password" id="confirm-password" name="confirm-password" class="r-input shadow-none form-control bg-black text-light rounded" placeholder="Enter your password" required>
+                </div>
+                <div id="alert-error" class="alert alert-danger" style="display:none;" role="alert">
+                </div>
+                <div id="alert-success" class="alert alert-primary" style="display:none;" role="alert">
+                </div>
+                <button id="register" type="submit" class="r-button mt-5 btn btn-primary w-100">Register now</button>
+            </form>
+        </div>
+    </div>
+</div>

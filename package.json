@@ -1,0 +1,36 @@
+{
+  "name": "weather-analytics",
+  "version": "1.0.0",
+  "description": "a web application for weather analytics",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryan-sheridan/weather-analytics.git"
+  },
+  "keywords": [
+    "weather",
+    "map",
+    "api",
+    "graph"
+  ],
+  "author": "Ryan Sheridan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryan-sheridan/weather-analytics/issues"
+  },
+  "homepage": "https://github.com/ryan-sheridan/weather-analytics#readme",
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

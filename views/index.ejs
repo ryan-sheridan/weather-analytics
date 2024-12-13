@@ -1,0 +1,48 @@
+<% layout('partials/layout') %>
+<% if(profile === "disabled" && user && user.id){ %>
+    <script>
+        localStorage.setItem('userId', parseInt('<%- user.id %>'));
+    </script>
+<% } %>
+<div class="container mt-5 text-light p-4">
+    <div class="row align-items-top justify-content-between">
+        <div class="d-flex home-container"></div>
+            <div class="d-flex align-items-top justify-content-between welcome-container">
+                <div class="mt-4">
+                    <h1 class="font-weight-bold m-0 mt-3">Weather Analytics</h1>
+                    <% if(profile === "disabled"){ %>
+                        <p class="text-muted m-0">Start analysing weather today.</p>
+                    <% } %>
+                    <% if(profile === "enabled"){ %>
+                        <p class="text-muted m-0">Welcome <%- user.username %></p>
+                    <% } %>
+                </div>
+                <!-- TODO: grab user location, get weather for city, display on page -->
+                <% if(profile === "enabled"){ %>
+                    <div class="mt-4 text-end">
+                        <h1 class="font-weight-bold m-0 mt-3"><%-/* city */%></h1>
+                        <p class="text-muted m-0"><%-/* temp */%></p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        <div class="row align-items-top justify-content-center">
+            <div class="mt-5">
+                <% if(profile === "disabled"){ %>
+                    <button class="px-5 py-2 btn btn-primary mx-1" onclick="window.location.href='/register'">Sign up</button>
+                    <button class="px-5 py-2 btn btn-secondary mx-1" onclick="window.location.href='/login'">Login</button>
+                <% } %>
+                <% if(profile === "enabled"){ %>
+                    <button class="px-5 py-2 btn btn-primary mx-1" onclick="window.location.href='/weather'">Start now</button>
+                <% } %>
+            </div>
+        </div>
+        <div>
+           <h2 class="mt-5">Known issues</h2>
+           <ul>
+                <li>Logging in does not work on mobile for some reason, maybe a <code>Set-Cookie</code> issue.</li>
+                <li>The map uses WebGL, will error out if browser does not support WebGL, luckily, most browsers do.</li>
+           </ul>
+        </div>
+    </div>
+</div>
